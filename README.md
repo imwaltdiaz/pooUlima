@@ -10,4 +10,6 @@ La clase es la generalizacion de un conjunto de objetos. La manifestacion de una
 
 En POO no es tan util el acoplamiento, las clases no se vana  enterar delos metodos, se van a enterar nomas del resultado de los metodos. Los cambios de interno no afectan a otras clase. Solo se pueden comunicar por metodos.
 
-La iteración entre clases hacen que se generen los programas en la poo
+La iteración entre clases hacen que se generen los programas en la poo. Si algo llega a tener mas informacion, ese algo llega a ser clase.
+
+Polimorfismo: Mismo metodo pero se llama diferente dependiendo de quien lo llame. Los metodos normalmente cambian el estado de los atributos.
