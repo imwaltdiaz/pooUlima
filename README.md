@@ -202,3 +202,64 @@ En una misma relacion se puede tener composicion/agregacion
 Un almacen tiene una cuente y una cliente. Sin cuenta desaparece o sin almacen desaparece ambos, pero el cliente puede existir independientemente.
 
 app: <https://app.diagrams.net/>
+
+Veamos un llenado por aleatorio
+
+```java
+//Para arreglos: 
+int[] edad;
+edad = new int[10];
+
+//Para usar random
+Random randNum = new Random();
+edad[i] = randNum.nextInt(22-18+1)+18;
+
+//edad[i] = randNum.nextInt(mayor-menor+1)+menor;
+
+
+// create instance of Random class
+Random rand = new Random();
+
+// Generate random integers in range 0 to 999
+int rand_int1 = rand.nextInt(1000);
+int rand_int2 = rand.nextInt(1000);
+
+```
+
+Generas constructor con ctrl y .
+
+Trabajando un arreglo de dos dimensiones:
+
+```java
+int[][] edad;
+edad = new int[3][4];
+
+int[][] edad2 = new int[4][5];
+```
+
+Practicar:
+
+- Llenado aleatorio
+- Llenado uno por uno
+
+```java
+//Para entrada
+Scanner sc = new Scanner(System.in);
+
+Random rand = new Random();
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 4; j++) {
+        edad[i][j] = rand.nextInt(10-1+1)+1;
+    }
+}
+String cad = "";
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 4; j++) {
+        cad = cad + edad[i][j] + "\t";
+    }
+    System.out.println(cad);
+    cad = "";
+}
+```
+
+Cuando creas el objeto mediante el constructor es cuando dimensionas a los arreglos
