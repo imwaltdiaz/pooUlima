@@ -2,6 +2,7 @@
 
 ```java
 //Declaras variables en objeto con:
+private String nombreVariable
 private int[][] matriz;
 private int[] totalXAlmacen, totalXTipoProd;
 //Pero los inicializas en el constructor (vacio) con: 
@@ -61,5 +62,12 @@ cad = cad + arreglo[i].VerInfo()
 //Como el arreglo es un obj, puedes usar sus funciones
 
 //el truco esta en tener paquete.clases, .gestion, .prueba
-//en gestion solo lo metes al arreglo
+//en gestion solo lo metes al arreglo 
+Alumno obj1 = new Alumno(37218, "Juan");
+
+GestionAlumno objGA = new GestionAlumno();
+objGA.Ingresar(obj1);
+
+//crearas objetos con new
+//crearas el objeto de gestion (igual con new)
 ```
