@@ -263,3 +263,19 @@ for (int i = 0; i < 3; i++) {
 ```
 
 Cuando creas el objeto mediante el constructor es cuando dimensionas a los arreglos
+
+## Clases abstractas
+
+Abstraco es que esta solo su nombramiento pero no la implementacion
+
+Un metodo abstracto solo es declarado, la implementación va dentro de las subclases
+
+Ante un metodo abstracto todas las subclases la deben implementar
+
+La clase abstracta es una clase que no se puede instanciar objetos
+
+Es decir no puedes hacerle new
+
+Un metood abstracto en una clase la vuelve abstracta, pero una clase abstracta puede tener metodos no abstractos
+
+Recierda implementar metodo y de ahi el override
