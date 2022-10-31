@@ -44,9 +44,13 @@ Y en el constructor:
   nombreArreglo = nuevo Clase[num]
   contador es 0
 
+
+
+Algoritmo ingresar
 Para ingresar(Clase ref)
-  Verificar si hay espacio, conta es menor al largo del arreglo
+  Verificar si hay espacio, conta < al largo del arreglo
     array[conta] es ref
+    conta++
 
 El random acuerdate que es .nextInt(mayor-menos+1)+menor
 
@@ -84,4 +88,19 @@ varG.Ingresar(obj1);
 sout(varG.VerInfo())
 
 Porsi a una var a verificar si cambiar v o f, asignale falso por default
+
+Acuerdate del import static paquete.clases.NombreInteraz.Variable;
+
+Herencia es con extends e interfaces con implements
+
+Primero es normalmente el extends luego el implements
+
+Usa el override method para escribir en una funcion hija sobre el metodo que ya le trae su padre como verInfo
+
+Random rand = new Random()
+
+Acuerdate de los getters and setters
+
+Juega con el modulo para hallar cuando no es par con %2 !=
+
 ```
