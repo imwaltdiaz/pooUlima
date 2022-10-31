@@ -264,6 +264,45 @@ for (int i = 0; i < 3; i++) {
 
 Cuando creas el objeto mediante el constructor es cuando dimensionas a los arreglos
 
+En paquete gestion:
+
+```java
+private Alumno[] arreglo;
+private int conta;
+
+public GestionAlumno() {
+    arreglo = new Alumno[10];
+    conta = 0;
+}
+public void Ingresar(Alumno ref){
+  if (conta < arreglo.length) {
+      arreglo[conta] = ref;
+      conta++;
+  }
+  else {
+      System.out.println("No entra");
+  }
+}
+```
+
+En el Prueba:
+
+```java
+public static void main(String[] args) {
+    Alumno obj1 = new Alumno(37218, "Juan");
+    Alumno obj2 = new Alumno(123312, "Pepe");
+    Alumno obj3 = new Alumno(23344, "Mario");
+    Alumno obj4 = new Alumno(434123, "Lucho");
+    
+    GestionAlumno objGA = new GestionAlumno();
+    objGA.Ingresar(obj1);
+    objGA.Ingresar(obj2);
+    objGA.Ingresar(obj3);
+    objGA.Ingresar(obj4);
+    System.out.println(objGA.VerInfo());
+}
+```
+
 ## Clases abstractas
 
 Abstraco es que esta solo su nombramiento pero no la implementacion
