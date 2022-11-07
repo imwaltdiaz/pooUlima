@@ -104,3 +104,82 @@ Acuerdate de los getters and setters
 Juega con el modulo para hallar cuando no es par con %2 !=
 
 ```
+
+## Clases Genéricas
+
+No necesitamos castear en las clases genéricas. Contarmeos ocn un arreglo genérico o clase genérica con sus métodos.
+
+Convención de Parametrizacion
+
+T: Parametro generico, clase de objetos que opera ClaseGenerica
+
+E: tipo de elemento en una lista, cola, etc
+
+N: Numero
+
+```java
+public class GenericaClase <T> {
+
+}
+
+```
+
+## Interfaces gráficas y manejo de excepciones
+
+Usaremos el AWT abstract windowing toolkin, es decir de la libreria swing
+
+Trabajaremos con un contenedor o ventan principal donde pondremos los componentes o elementos gráficos
+
+Escribiremos el codigo de los componentes y su apariencia en la interfaz, aplicando atributos a traves d ela presentacion, color, tamaño, etc
+
+Programar los eventos en la interfaz gráfica
+
+Ahora en paquete.ventana le daremos crear nuevo JFrame From
+
+En diseño añadimos los controles, en Source vmeos el códiigo
+
+buttongroup hará que solo podamos marcar 1 de los dos botones
+
+En table con model eliminaremos el contenido y para que nosotros controlemos el table
+
+Entonces necesitas un objeto de la clase model y gestionarlo así
+
+```java
+
+```
+
+jbutotn action o doble click vemos como trabajar con la accion
+
+Necesitamos un arreglo que represente la fila
+
+```java
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+  // TODO add your handling code here:
+    String[] arreglo = new String[4];
+  //Necesitas 4 espacios xq tienes 4 elementos, es decir cada espacio, cada columna
+  //No necesitas una rreglo bidimensional xq solo estas creando uno a la vez
+  arreglo[0] = this.jTextField1.getText();
+  arreglo[1] = this.jTextField2.getText();
+  //Para capturar un button round, necesitas saber cual esta seleccionado
+  if (this.jRadioButton1.isSelected()) {
+      arreglo[2] = "Mayor";
+  }
+  else if(this.jRadioButton2.isSelected()){
+      arreglo[2] = "Menor";
+  }
+  String cad = "";
+  if (this.jCheckBox1.isSelected()) {
+      arreglo[3] = cad + "Java";
+  }
+  if(this.jCheckBox2.isSelected()){
+      cad = cad + " Python";
+  }
+  if(this.jCheckBox3.isSelected()){
+      cad = cad + " C++";
+  }
+  arreglo[3] = cad;
+  
+  //Ahora falta adicionar a table
+  modelo.addRow(arreglo);
+}           
+```
