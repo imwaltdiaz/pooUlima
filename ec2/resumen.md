@@ -1,5 +1,7 @@
 # Resumen
 
+## Para ev 3
+
 ```md
 Algoritmo burbuja:
   Inicio
@@ -26,7 +28,7 @@ Algoritmo Burbuja segun profe
 Inicio
   Obj aux
   Para i = 0 hasta n-1
-    para j = i+1 hasta n
+    para j = i+1 hasta n con j++
       Si (datos[i]> datos[j])
         aux = datos[i]
         arreglo[i] = arreglo[j]
@@ -105,81 +107,193 @@ Juega con el modulo para hallar cuando no es par con %2 !=
 
 ```
 
-## Clases Genéricas
+## Para ev4
 
-No necesitamos castear en las clases genéricas. Contarmeos ocn un arreglo genérico o clase genérica con sus métodos.
+```md
+Ok, aqui va!
 
-Convención de Parametrizacion
+Acordate de graficar bien el UMl, para e larraylist es supervisores: Supervisor[] <ArrayList> 
 
-T: Parametro generico, clase de objetos que opera ClaseGenerica
+La interfaz lo pones con <int>
 
-E: tipo de elemento en una lista, cola, etc
+Los metodos abstractos los pones con <abs>
 
-N: Numero
+Y acordate bien el tipo de variables, si es float o int, LA HERENCIA ES CON PROTECTED
 
-```java
-public class GenericaClase <T> {
+Tambine acuerdate del metodo abstracto en la clase padre con public abstract void NombreMetodo();
+Esto hará a toda la clase abstract
 
-}
+extends Padre implements Interfaz
+
+Los floats son 0.05f
+
+El random es:
+Random rand = new Random();
+this.variable = rand.nextInt(mayor-menor+1)+menor;
+
+Acuerdate de poner el random afuera de los ciclos if, osea antes, la asignacion del next int va dentro de los if
+
+El arrayList, dentro de la clase como atributo es private Arraylist<nombreClaseArreglo> arreglo;
+
+El nombre de la clase dentro de los <> debe ser del tipo de objeto que será el arrayList
+
+El arrayList se inicializará en el constructor como ():
+arreglo = new ArrayList<nombreClaseArreglo>();
+
+Agregar la sabes , es el metodo Agregar(Clase ref); arreglo.add(ref)
+
+Para mostrar la cosa cambia, vas a necesitar del Iterator
+
+Lo usarás de esta forma:
+Iterator<NombreClaseDelArrayList> puntero = arreglo.iterator()
+
+luego usarás un while inmediatamente evaluando puntero.hasNext()
+Adentro pondrás:
+Supervisor aux = puntero.next();
+
+Y mostrarás inmediatemnte (todavia dentro del while) un alert con:
+JOptionPane.showMessageDialog(null, "Mensaje" o aux.VerInfo())
+
+Ahi acaba el while
+
+Acuerdate del equalsIgnoreCase para comparar strings
+
+En la interfaz acuerdate de los metodos solo ser: void NombreMetodo();
+
+Las variables en las interfaces pones su tipo y su nombnre y lo asignas tipo: double VALOR_MAXIMO = 100;
+Y nada mas 
+
+Ahora toca gestion, agarrate
+En gestion inicializas con private, el arreglo y conta, el arreglo será private TipoDeObjArreglo[] arreglo, y el conta solo será un int
+
+Pero aguantaa, ahora en el constructor inicializas el arreglo de objetos con arreglo = new TipoDeObjArreglo[numMax]; conta = 0;
+Osea asignamos el numero maximo de elementos del arreglo de objetos y asignamos conta a 0;
+
+Ahora toca Ingresar
+Mira causa, si te piden try/catch aqui, asi es la jugada, imagina ingresar:
+
+Funcion Ingresar(Clase ref)
+  Try
+    //Puedes verificar si hay espacio, mas arriba esta el algoritmo, pero recemos que sea opcional
+    Si ref instanceof ClaseAComparar
+      arreglo[conta] es ref
+      conta++;
+    Sino
+      JOptionPane.showMessageDialog(null, "Bug, algo salio mal")
+  Catch(Exception error)
+    JOptionPane.showMessageDialog(null, "Error papito")
+Fin Ingrsar
+
+Pudes poner multiples catch, normalmnete si el arreglo se excede, pones IndexOutOfBoundsException, o sino por defecto pon Exception, pero el mas especifico arriba del mas general, ahora las variables que van en el catch como ex o error, no se pueden repetir, asi que nombres distintos por favor
+
+El ordenar esta mas arriba
+
+El eliminar bueno, casi nos sorprende el anteriro examen, mira ahora
+
+Funcion Eliminar(segun que, int numero o String variable idk)
+  Para i = 0 hasta i < conta , i++
+    Si arreglo[i] coincide con Numero o Variable
+      Para j = i, j < conta -1, j++
+        arreglo[j] = arreglo[j+1];
+      Fin Para
+      arreglo[conta-1] = nulo
+      conta--
+    Fin si
+  Fin para
+Fin Eliminar
+
+Acordate que nulo es null
+
+Ahora que no te sorprenda que vengau n Inggresar de acuerdo a posicion, la jugada es: 
+
+Funcion IngresarPos(variablePos, ref)
+  Si conta < arreglo.length
+    Si pos < conta
+      Para i = conta -1 hasta i >= pos, con i--
+        arreglo[i+1] = arreglo[i]
+      Fin Para
+      arreglo[variablePos] = ref
+      conta++
+    Sino
+      Alerta con JOptionPane de que la pos no es autorizada
+  Sino
+    Alerta con JOptionPane de que no hay espacio
+Fin IngresarPos
+
+
+AHORA VIENE LA PARTE MAS YUCA DE TODAS, LA VENTANA, DE ESTO DEPENDE TU EXAMEN CSM, ASI QUE VAMOS A DARLE
+
+Ya mira, manya la jugada en ventana
+
+ACUERDATE DE ANTES ELIMINAR LO QUE VIENE EN LA TABLA POR DEFECTO EN TABLE CONTENTS
+
+Declaras los atributos modelo y gestionTipo (osea de que queres gestionar), el primero es privado del tipo DefaultTableModel y el segundo es del tipo Gestion (por la clase Gestion)
+
+Ahora el **constructor** loco, ya contarás con el initComponents(); asegurate que esté
+
+De ahi iniciarás el modelo de DegaultTableModel() con: modelo = new DefaultTableModel();
+
+Ahora ya cuentas con el modelo, asi que encargate ahora de añadir las columnas de acuerdo al numero que necesites, podes hacerlo 5 u 8 veces o cuanto necesites, pero cada columna lo harás de la sgte manera: modelo.addColumn("Nombre Columna");
+
+Acuerdate que hasta aqui **seguimos en el contructor**, luego con this,JTable1.setModel(modelo); asignarás el modelo de tablas que elaboramos en el panel
+
+siguiendo en el constructor con el modelo ya listo, iniciaremos gestion, la variable que creamos anteriormente en la clase, ahora la inicializaremos con nombreGestion = new  Gestion();
+
+Ya acabamos el constructor, yey, ahora con el panel fijate bien el group con buttonGroup
+
+AHORA CON EL BOTON CARGAR, AQUI VAMOS
+Le darás click al boton en la ventnaa, te llevará a la funcion donde trabajar
+
+Obtendras los datos de los TextFields con this.jTextField1.getText();
+
+Ahora causa, como sabes, obtendras texto simepre, será STRING, pero a veces lo vas a querer transformar en int o float, lo harás con: Integer.parseInt(codigo de arriba del textfield);
+Con float cambias dinde diga Integer e Int por Float
+
+Acuerdate que si fuera al reves y quisieras de int o lo que sea a String lo harás con un: String.valueOf(codigo a pasar con un getter);
+
+Ahoraa, que pasa con los bototnes redondos a verificar si uno es seleccionado?
+Aqui va hijo:
+Si jRadioButton1.isSelected()
+  Clase var = new Clase(constructor variables bla, bla, bla);
+  var.MetodosAEjecutar();
+  gestionVariable.Ingresar(var)
+Fin si
+Poblar()
+
+El metodo Poblar viene en un rato
+
+Si te piden ordenar solo llama a gestionVar.Ordenar(); Poblar(); y listo
+
+Con eliminar será lo mismo, gestionVar.Eliminar(Transformar a int o lo que sea la respuesta del textField); Poblar(); listo
+
+
+Ahora la funcion Poblar, que se encargará de llenar los datos
+Funcion Poblar()
+  filas es modelo.getRowCount();
+  Para i = 0 hasta i < filas, i++
+    modelo.removeRow(0)
+  Fin Para
+  //Ahora inicia lo bravo
+  String[] datos = new String[numero de Columnas];
+  Objeto[] tipoDeObjetos = gestion.getArreglo()
+  //Por ejm Alumno y alumnos 
+  Para i = 0 hasta i < gestion.Conta
+    //Ahora llenaras los datos del arreglo con
+    datos[0] = tipoDeObjetos[i].getAlgo();
+    datos[1...(Y asi harás con el resto de elmentos del array)] = "Algo"
+    
+    modelo.addRow(datos)
+  Fin Para
+Fin Poblar()
+
+Acuerdate de tmb transformarlo a String cuando sea necesario, tmb de usar el instanceof
+
+Puede que algun momento tengas que usar un metodo de algun hijo como un getter, pero el arreglo datos es del padre, encontes usarás un aux dentro del if del instanceof:
+
+datos[3] = "Bla"
+Clase aux = (Clase)datos[i]
+datos[9] = String.valueof(aux.GetAlgo());
 
 ```
 
-## Interfaces gráficas y manejo de excepciones
-
-Usaremos el AWT abstract windowing toolkin, es decir de la libreria swing
-
-Trabajaremos con un contenedor o ventan principal donde pondremos los componentes o elementos gráficos
-
-Escribiremos el codigo de los componentes y su apariencia en la interfaz, aplicando atributos a traves d ela presentacion, color, tamaño, etc
-
-Programar los eventos en la interfaz gráfica
-
-Ahora en paquete.ventana le daremos crear nuevo JFrame From
-
-En diseño añadimos los controles, en Source vmeos el códiigo
-
-buttongroup hará que solo podamos marcar 1 de los dos botones
-
-En table con model eliminaremos el contenido y para que nosotros controlemos el table
-
-Entonces necesitas un objeto de la clase model y gestionarlo así
-
-```java
-
-```
-
-jbutotn action o doble click vemos como trabajar con la accion
-
-Necesitamos un arreglo que represente la fila
-
-```java
-private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-  // TODO add your handling code here:
-    String[] arreglo = new String[4];
-  //Necesitas 4 espacios xq tienes 4 elementos, es decir cada espacio, cada columna
-  //No necesitas una rreglo bidimensional xq solo estas creando uno a la vez
-  arreglo[0] = this.jTextField1.getText();
-  arreglo[1] = this.jTextField2.getText();
-  //Para capturar un button round, necesitas saber cual esta seleccionado
-  if (this.jRadioButton1.isSelected()) {
-      arreglo[2] = "Mayor";
-  }
-  else if(this.jRadioButton2.isSelected()){
-      arreglo[2] = "Menor";
-  }
-  String cad = "";
-  if (this.jCheckBox1.isSelected()) {
-      arreglo[3] = cad + "Java";
-  }
-  if(this.jCheckBox2.isSelected()){
-      cad = cad + " Python";
-  }
-  if(this.jCheckBox3.isSelected()){
-      cad = cad + " C++";
-  }
-  arreglo[3] = cad;
-  
-  //Ahora falta adicionar a table
-  modelo.addRow(arreglo);
-}           
-```
+<https://youtube.com/shorts/DsUr9-lMPSk?feature=share>
